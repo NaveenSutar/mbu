@@ -116,6 +116,19 @@ class App extends Component {
 	}
 }
 
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: App,
+  },
+  Details: {
+    screen: Signin,
+  },
+}, {
+    initialRouteName: 'Home',
+});
+
+export default createAppContainer(AppNavigator);
+
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
@@ -178,16 +191,3 @@ const styles = StyleSheet.create({
 		borderRadius: 5,
 	},
 });
-
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: App,
-  },
-  Details: {
-    screen: Signin,
-  },
-}, {
-    initialRouteName: 'Home',
-});
-
-export default createAppContainer(AppNavigator);
