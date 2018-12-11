@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image, StatusBar} from 'react-native';
 import RadialGradient from 'react-native-radial-gradient';
+import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
 
-export default class EmailConfirmation extends Component {
+import Signin from './Signin';
+
+class EmailConfirmation extends Component {
 	render() {
 		return (
 			<RadialGradient style={styles.container} colors={['#1B5378','#0E2A3C']} stops={[0.1,0.5]} radius={500}>
@@ -15,8 +18,8 @@ export default class EmailConfirmation extends Component {
 					<Text style={styles.spamText}>(Please check your spam folder)</Text>
 				</View>
 				<View style={styles.bottom}>
-					<Text style = {{fontSize:12, color:'#fff'}}>Click here to </Text>
-					<Text style = {{fontSize:12, color:'#009AFF'}}>SIGNIN</Text>
+					<Text onPress={() => this.props.navigation.navigate('signin')} style = {{fontSize:12, color:'#fff'}}>Click here to </Text>
+					<Text onPress={() => this.props.navigation.navigate('signin')} style = {{fontSize:12, color:'#009AFF'}}>SIGNIN</Text>
 				</View>
 			</RadialGradient>
 		);
@@ -75,3 +78,27 @@ const styles = StyleSheet.create({
 		justifyContent: 'center'
 	},
 });
+
+const AppNavigator = createStackNavigator({
+	emailconfirm: {
+	  screen: EmailConfirmation,
+	  navigationOptions: {
+		headerLeft: null,
+		headerVisible: false,
+	  }
+	},
+	signin: {
+	  screen: Signin,
+	  navigationOptions: {
+		headerLeft: null,
+		headerVisible: false,
+	  }
+	},
+  }, {
+	  headerMode: 'none',
+	  navigationOptions: {
+		headerVisible: false,
+	  }
+	});
+  
+  export default createAppContainer(AppNavigator);

@@ -9,26 +9,34 @@ import {
 export default class OnboardOne extends Component {
   render() {
     return (
-      <View style={styles.container}>
-		<StatusBar backgroundColor="#1B5378" barStyle="light-content"/>
-        <Text style={styles.title}>
-          OnboardOne
-        </Text>
+      <View style={[styles.slide, { backgroundColor: '#C04DEE' }]}>
+        <Text style={styles.header}>EAT</Text>
+        <Text style={styles.text}>Good nutrition is an important part of leading a healthy lifestyle</Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  slide: {
+    flex: 1,                    // Take up all screen
+    justifyContent: 'center',   // Center vertically
+    alignItems: 'center',       // Center horizontally
   },
-  title: {
-    fontSize: 20,
+  // Header styles
+  header: {
+    color: '#FFFFFF',
+    fontFamily: 'Avenir',
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginVertical: 15,
+  },
+  // Text below header
+  text: {
+    color: '#FFFFFF',
+    fontFamily: 'Avenir',
+    fontSize: 18,
+    marginHorizontal: 40,
     textAlign: 'center',
-    margin: 10,
-  }
+  },
 });
