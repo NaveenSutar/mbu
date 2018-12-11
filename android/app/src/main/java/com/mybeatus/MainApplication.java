@@ -3,6 +3,9 @@ package com.mybeatus;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import com.surajit.rnrg.RNRadialGradientPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.surajit.rnrg.RNRadialGradientPackage;
@@ -27,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
 		return Arrays.<ReactPackage>asList(
 		  new MainReactPackage(),
+            new VectorIconsPackage(),
             new RNGestureHandlerPackage(),
             new SplashScreenReactPackage(),
             new RNRadialGradientPackage()

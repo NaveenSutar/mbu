@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {AppRegistry, StatusBar} from 'react-native';
 
-import OnboardOne from './screens/OnboardOne';
+import OnboardOne from './screens/Onboarding/OnboardOne';
 
 export default class App extends Component {
 	componentDidMount() {
