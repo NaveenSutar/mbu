@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableHighlight, CheckBox, AppRegistry, StyleSheet, TextInput, View, Alert, Button, Text, Image, StatusBar } from 'react-native';
+import {TouchableOpacity, TouchableHighlight, CheckBox, AppRegistry, StyleSheet, TextInput, View, Alert, Button, Text, Image, StatusBar } from 'react-native';
 import RadialGradient from 'react-native-radial-gradient';
 
 class Signin extends Component {
@@ -17,16 +17,21 @@ class Signin extends Component {
 
 					<View>
 						<Text style={{ fontSize: 20, color: "#fff", textAlign: 'center', marginBottom: 10, marginTop: 10 }}>Signin</Text>
+						
 						<TextInput placeholder="Email" onChangeText={UserName => this.setState({ UserName })} underlineColorAndroid='transparent' style={styles.TextInputStyleClass} />
+						
 						<TextInput placeholder="Password" onChangeText={Password => this.setState({ Password })} underlineColorAndroid='transparent' style={styles.TextInputStyleClass} secureTextEntry={true} />
-						<View onPress={this.UserRegistrationFunction} style={styles.ButtonStyleClass}>
-							<Text onPress={this.UserRegistrationFunction} style={{ fontSize: 15, }}>SIGNIN</Text>
-						</View>
+
+						<TouchableOpacity onPress={this.UserRegistrationFunction}>
+							<View style={styles.ButtonStyleClass}>
+								<Text style={{fontSize: 15,}}>SIGNIN</Text>
+							</View>
+            			</TouchableOpacity>
 					</View>
 
 					<View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 5 }}>
-						<Text style={{ fontSize: 12, color: '#fff' }}>Don't have an account? </Text>
-						<Text style={{ fontSize: 12, color: '#009AFF' }}>SIGNUP</Text>
+						<Text onPress={() => this.props.navigation.goBack()} style={{ fontSize: 12, color: '#fff' }}>Don't have an account? </Text>
+						<Text onPress={() => this.props.navigation.goBack()} style={{ fontSize: 12, color: '#009AFF' }}>SIGNUP</Text>
 					</View>
 
 					<View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'center', justifyContent: 'center', alignItems: 'center', }}>

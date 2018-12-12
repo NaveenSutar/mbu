@@ -299,11 +299,10 @@ export default class OnboardingScreens extends Component {
     },
     // Active dot
     activeDot: {
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#1B5378',
     },
     // Button wrapper
     buttonWrapper: {
-      backgroundColor: 'transparent',
       flexDirection: 'column',
       position: 'absolute',
       bottom: 0,

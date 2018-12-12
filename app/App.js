@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {AppRegistry, StatusBar} from 'react-native';
 
-import OnboardOne from './screens/Onboarding/Onboard';
+import Onboard from './screens/Onboarding/Onboard';
 
 export default class App extends Component {
 	componentDidMount() {
@@ -10,7 +10,7 @@ export default class App extends Component {
 	  }
 	render() {
 		return (
-			<OnboardOne />
+			<Onboard />
 		);
 	}
 }

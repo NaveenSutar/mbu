@@ -4,41 +4,62 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   StatusBar
 } from 'react-native';
 
 import Swiper from './Swiper';
 
-export default class OnboardOne extends Component {
+export default class Onboard extends Component {
   render() {
     return (
       <Swiper>
         {/* First screen */}
-        <View style={[styles.slide, { backgroundColor: '#202020' }]}>
-          <Icon name="ios-nutrition" {...iconStyles} />
-          <Text style={styles.header}>EAT</Text>
-          <Text style={styles.text}>Good nutrition is an important part of leading a healthy lifestyle</Text>
+        <View style={[styles.slide, { backgroundColor: '#ffffff' }]}>
+          <View style={styles.logoPart}>
+            <Image style={styles.logoImage} source={{ uri: 'logo' }} />
+            <Text style={styles.logoText}>myBeatus</Text>
+            <Text style={styles.taglineText}>Education - Success - Excellence</Text>
+          </View>
+          <View style={styles.contentPart}>
+            <Text>Select Your Language</Text>
+          </View>
         </View>
 
         {/* Second screen */}
-        <View style={[styles.slide, { backgroundColor: '#222222' }]}>
-          <Icon name="ios-cloud-upload" {...iconStyles} />
-          <Text style={styles.header}>PRAY</Text>
-          <Text style={styles.text}>Prayer is one of the most important things a Christian can do</Text>
+        <View style={[styles.slide, { backgroundColor: '#ffffff' }]}>
+        <View style={styles.logoPart}>
+            <Image style={styles.logoImage} source={{ uri: 'logo' }} />
+            <Text style={styles.logoText}>myBeatus</Text>
+            <Text style={styles.taglineText}>Education - Success - Excellence</Text>
+          </View>
+          <View style={styles.contentPart}>
+            <Text>Track Your Academic Growth</Text>
+          </View>
         </View>
 
         {/* Third screen */}
-        <View style={[styles.slide, { backgroundColor: '#242424' }]}>
-          <Icon name="ios-cloud-upload" {...iconStyles} />
-          <Text style={styles.header}>PRAY</Text>
-          <Text style={styles.text}>Prayer is one of the most important things a Christian can do</Text>
+        <View style={[styles.slide, { backgroundColor: '#ffffff' }]}>
+        <View style={styles.logoPart}>
+            <Image style={styles.logoImage} source={{ uri: 'logo' }} />
+            <Text style={styles.logoText}>myBeatus</Text>
+            <Text style={styles.taglineText}>Education - Success - Excellence</Text>
+          </View>
+          <View style={styles.contentPart}>
+            <Text>Search for Trainings Around You</Text>
+          </View>
         </View>
 
         {/* Fourth screen */}
-        <View style={[styles.slide, { backgroundColor: '#262626' }]}>
-          <Icon name="ios-heart" {...iconStyles} />
-          <Text style={styles.header}>LOVE</Text>
-          <Text style={styles.text}>Where there is love there is life</Text>
+        <View style={[styles.slide, { backgroundColor: '#ffffff' }]}>
+        <View style={styles.logoPart}>
+            <Image style={styles.logoImage} source={{ uri: 'logo' }} />
+            <Text style={styles.logoText}>myBeatus</Text>
+            <Text style={styles.taglineText}>Education - Success - Excellence</Text>
+          </View>
+          <View style={styles.contentPart}>
+            <Text>Manage your Daily Education Progress</Text>
+          </View>
         </View>
 
       </Swiper>
@@ -54,23 +75,30 @@ const iconStyles = {
 const styles = StyleSheet.create({
   slide: {
     flex: 1,                    // Take up all screen
+    
+  },
+
+  logoPart:{
+    flex:3,
     justifyContent: 'center',   // Center vertically
     alignItems: 'center',       // Center horizontally
   },
-  // Header styles
-  header: {
-    color: '#FFFFFF',
-    fontFamily: 'Avenir',
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginVertical: 15,
+
+  contentPart:{
+    flex:7,
+    alignItems: 'center',       // Center horizontally
   },
-  // Text below header
-  text: {
-    color: '#FFFFFF',
-    fontFamily: 'Avenir',
-    fontSize: 18,
-    marginHorizontal: 40,
-    textAlign: 'center',
+  logoImage: {
+    height: 50,
+    width: 50,
+    borderRadius: 5,
+    borderColor: "white"
+  },
+  logoText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  taglineText: {
+    fontSize: 10,
   },
 });

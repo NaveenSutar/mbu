@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TouchableHighlight, CheckBox, AppRegistry, StyleSheet, TextInput, View, Alert, Button, Text, Image, StatusBar } from "react-native";
+import {TouchableOpacity, TouchableHighlight, CheckBox, AppRegistry, StyleSheet, TextInput, View, Alert, Button, Text, Image, StatusBar } from "react-native";
 import RadialGradient from "react-native-radial-gradient";
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
 
@@ -85,15 +85,19 @@ class Signup extends Component {
             <View style={{ marginTop: -5, flexDirection: 'row' }}>
               <Text style={{ flex: 20, color: '#fff', fontSize: 12, marginBottom: 5, }}>By keeping a myBeatus account, you agree to our Terms and Conditions, Privacy Policy, End User Licence Agreement, Cookies Policy.</Text>
             </View>
+            
+            <TouchableOpacity onPress={this.UserRegistrationFunction}>
+              <View style={styles.ButtonStyleClass}>
+                <Text style={{fontSize: 15,}}>SIGNUP</Text>
+              </View>
+            </TouchableOpacity>
 
-            <View onPress={this.UserRegistrationFunction} style={styles.ButtonStyleClass}>
-              <Text onPress={this.UserRegistrationFunction} style={{ fontSize: 15, }}>SIGNUP</Text>
-            </View>
+            
           </View>
 
           <View onPress={() => this.props.navigation.navigate('signin')} style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 5 }}>
             <Text onPress={() => this.props.navigation.navigate('signin')} style={{ fontSize: 12, color: '#fff' }}>Already have an account? </Text>
-            <Text onPress={() => this.props.navigation.navigate('signin')} style={{ fontSize: 12, color: '#009AFF' }}>Signin</Text>
+            <Text onPress={() => this.props.navigation.navigate('signin')} style={{ fontSize: 12, color: '#009AFF' }}>SIGNIN</Text>
           </View>
 
           <View style={{ flexDirection: 'row', justifyContent: 'center', alignContent: 'center', justifyContent: 'center', alignItems: 'center', }}>
