@@ -7,15 +7,14 @@ import {
   View,             // Container component
 } from 'react-native';
 import Button from './Button';
-import Signup from './../Signup';
 
 // Detect screen width and height
 const { width, height } = Dimensions.get('window');
 
-export default class OnboardingScreens extends Component {
+export default class Swiper extends Component {
 
-    // Props for ScrollView component
-    static defaultProps = {
+      // Props for ScrollView component
+      static defaultProps = {
       // Arrange screens horizontally
       horizontal: true,
       // Scroll exactly to the next screen, instead of continous scrolling
@@ -63,7 +62,6 @@ export default class OnboardingScreens extends Component {
         isScrolling: false,
         offset
       };
-  
       return state;
     }
   
@@ -234,7 +232,7 @@ export default class OnboardingScreens extends Component {
           {lastScreen
             // Show this button on the last screen
             // TODO: Add a handler that would send a user to your app after onboarding is complete
-            ? <Button text="Start Now" onPress={() => console.log('Send me to the app')} />
+            ? <Button text="Get Started" onPress={() => console.log('Send me to the app')} />
             // Or this one otherwise
             : <Button text="Continue" onPress={() => this.swipe()} />
           }

@@ -24,7 +24,7 @@ class Signup extends Component {
     const { fname } = this.state;
     const { lname } = this.state;
 
-    fetch("http://192.168.0.197:8000/register", {
+    fetch("http://192.168.0.190:8000/register", {
       method: "POST",
       headers: {
         Accept: "application/json",
