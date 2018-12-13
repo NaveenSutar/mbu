@@ -17,6 +17,12 @@ class Signup extends Component {
     };
   }
 
+  _FBSDK{
+    loginManager({
+
+    });
+  }
+
   UserRegistrationFunction = () => {
     const { email } = this.state;
     const { password } = this.state;

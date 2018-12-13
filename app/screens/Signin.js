@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TouchableOpacity, TouchableHighlight, CheckBox, AppRegistry, StyleSheet, TextInput, View, Alert, Button, Text, Image, StatusBar } from 'react-native';
+import { TouchableOpacity, TouchableHighlight, CheckBox, AppRegistry, StyleSheet, TextInput, View, Alert, Button, Text, Image, StatusBar } from 'react-native';
 import RadialGradient from 'react-native-radial-gradient';
 import { createAppContainer, createStackNavigator, } from 'react-navigation';
 
@@ -12,10 +12,9 @@ class Signin extends Component {
 		}
 	}
 
-	UserLoginFunction = () =>{
-		const { email }  = this.state ;
-		const { password }  = this.state ;
-
+	UserLoginFunction = () => {
+		const { email } = this.state;
+		const { password } = this.state;
 
 		fetch('http://192.168.0.190:8000/login', {
 			method: 'POST',
@@ -23,29 +22,24 @@ class Signin extends Component {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
 			},
-
-			
-
-
 			body: JSON.stringify({
 				email: email,
 				password: password
 			})
 		}).then((response) => response.text())
-		.then((responseText) => {
-			// If server response message same as Data Matched
-			if(responseText === 'Data Matched')
-			{
-				//Then open Profile activity and send user email to profile activity.
-				this.props.navigation.navigate('Second', { Email: email });
-			}
-			else{
-				Alert.alert(responseText);
-			}
+			.then((responseText) => {
+				// If server response message same as Data Matched
+				if (responseText === 'Data Matched') {
+					//Then open Profile activity and send user email to profile activity.
+					this.props.navigation.navigate('Second', { Email: email });
+				}
+				else {
+					Alert.alert(responseText);
+				}
 
-		}).catch((error) => {
-			console.error(error);
-		});
+			}).catch((error) => {
+				console.error(error);
+			});
 	}
 
 	render() {
@@ -62,24 +56,16 @@ class Signin extends Component {
 
 					<View>
 						<Text style={{ fontSize: 20, color: "#fff", textAlign: 'center', marginBottom: 10, marginTop: 10 }}>Signin</Text>
-						
-						<TextInput 
-							placeholder="Email" 
-							onChangeText={email => this.setState({ email })} 
-							underlineColorAndroid='transparent' 
-							style={styles.TextInputStyleClass} />
-						
-						<TextInput 
-							placeholder="Password" 
-							onChangeText={password => this.setState({ password })} 
-							underlineColorAndroid='transparent' 
-							style={styles.TextInputStyleClass} secureTextEntry={true} />
+
+						<TextInput placeholder="Email" onChangeText={email => this.setState({ email })} underlineColorAndroid='transparent' style={styles.TextInputStyleClass} />
+
+						<TextInput placeholder="Password" onChangeText={password => this.setState({ password })} underlineColorAndroid='transparent' style={styles.TextInputStyleClass} secureTextEntry={true} />
 
 						<TouchableOpacity onPress={this.UserLoginFunction}>
 							<View style={styles.ButtonStyleClass}>
-								<Text style={{fontSize: 15,}}>SIGNIN</Text>
+								<Text style={{ fontSize: 15, }}>SIGNIN</Text>
 							</View>
-            			</TouchableOpacity>
+						</TouchableOpacity>
 					</View>
 
 					<View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 5 }}>
@@ -107,46 +93,44 @@ class Signin extends Component {
 	}
 }
 
-class ProfileActivity extends Component
-{
+class ProfileActivity extends Component {
 	static navigationOptions =
-	{
-		title: 'ProfileActivity',
-	};
+		{
+			title: 'ProfileActivity',
+		};
 
-	render()
-	{
-		const {goBack} = this.props.navigation;
-		return(
+	render() {
+		const { goBack } = this.props.navigation;
+		return (
 			<View>
-			<Text> {this.props.navigation.state.params.Email} </Text>
-			<Button title="Click here to Logout" onPress={ () => goBack(null) } />
+				<Text> {this.props.navigation.state.params.Email} </Text>
+				<Button title="Click here to Logout" onPress={() => goBack(null)} />
 			</View>
 		);
 	}
 }
 
 const MainProject = createStackNavigator({
-	First: { 
+	First: {
 		screen: Signin,
 		navigationOptions: {
 			headerLeft: null,
 			headerVisible: false,
-		  }
-	 },
-	Second: { 
+		}
+	},
+	Second: {
 		screen: ProfileActivity,
 		navigationOptions: {
 			headerLeft: null,
 			headerVisible: false,
-		  }
-	 },
-	}, {
+		}
+	},
+}, {
 		headerMode: 'none',
 		navigationOptions: {
-		  headerVisible: false,
+			headerVisible: false,
 		}
-	  });
+	});
 
 export default createAppContainer(MainProject);
 
