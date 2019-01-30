@@ -61,7 +61,6 @@ export default class Onboard extends Component {
             <Text>Manage your Daily Education Progress</Text>
           </View>
         </View>
-
       </Swiper>
     );
   }
@@ -75,7 +74,6 @@ const iconStyles = {
 const styles = StyleSheet.create({
   slide: {
     flex: 1,                    // Take up all screen
-    
   },
 
   logoPart:{

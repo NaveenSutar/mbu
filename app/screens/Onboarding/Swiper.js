@@ -234,7 +234,7 @@ export default class Swiper extends Component {
             // TODO: Add a handler that would send a user to your app after onboarding is complete
             ? <Button text="Get Started" onPress={() => console.log('Send me to the app')} />
             // Or this one otherwise
-            : <Button text="Continue" onPress={() => this.swipe()} />
+            : <Button text="Next" onPress={() => this.swipe()} />
           }
         </View>
       );
